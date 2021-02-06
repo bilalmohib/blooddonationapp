@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "393392146268",
+    "firebase_url": "https://pakistandonor-default-rtdb.firebaseio.com",
+    "project_id": "pakistandonor",
+    "storage_bucket": "pakistandonor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393392146268:android:62c4d7b48e7a25993a6399",
+        "android_client_info": {
+          "package_name": "com.blooddonationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393392146268-edc326q2t64vqd27jnr3nln6bupdsvnh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blooddonationapp",
+            "certificate_hash": "cfd23cc071d1a72f561976f8d84bb556687de297"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD92ePoHmvkpbubgLTpOdE4NC1IPtOtBxI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "393392146268-kmq2e5elmvrj9h2fq7m5qkrep5a5be9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
