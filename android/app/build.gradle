@@ -132,6 +132,9 @@ android {
     defaultConfig {
         applicationId "com.blooddonationapp"
         minSdkVersion 21
+
+        missingDimensionStrategy 'react-native-camera', 'general'
+
         targetSdkVersion rootProject.ext.targetSdkVersion
 
          multiDexEnabled true // <-- ADD THIS in the defaultConfig section

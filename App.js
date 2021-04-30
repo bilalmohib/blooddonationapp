@@ -26,55 +26,58 @@ import DetailsData from "./src/Components/DetailsData";
 
 import FeedList from './src/Components/FeedList';
 
+import QRCode from './src/Components/QRCode';
+
+import BarCode from './src/Components/BarCode';
 
 
 
 
 
 
-// For Drawer Navigation
-const Drawer = createDrawerNavigator();
+// // For Drawer Navigation
+// const Drawer = createDrawerNavigator();
 
-function MyDrawer({ route, navigation }) {
+// function MyDrawer({ route, navigation }) {
 
-  const { UserProfile } = route.params;
+//   const { UserProfile } = route.params;
 
-  return (
-    <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={Home}
-        options={{
-          title: 'My home',
-          headerStyle: {
-            backgroundColor: '#f4511e',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-        initialParams={{ UserProfile: UserProfile }} />
-      <Drawer.Screen name="Feed"
-        component={Feed}
-      // options={{
-      //   headerLeft: () => (
-      //     <HeaderBackButton
-      //     onPress={() => navigation.navigate('Home',{
-      //       UserProfile: UserProfile
-      //     })}
-      //     />
-      //   ),
-      // }}
+//   return (
+//     <Drawer.Navigator initialRouteName="Home">
+//       <Drawer.Screen name="Home" component={Home}
+//         options={{
+//           title: 'My home',
+//           headerStyle: {
+//             backgroundColor: '#f4511e',
+//           },
+//           headerTintColor: '#fff',
+//           headerTitleStyle: {
+//             fontWeight: 'bold',
+//           },
+//         }}
+//         initialParams={{ UserProfile: UserProfile }} />
+//       <Drawer.Screen name="Feed"
+//         component={Feed}
+//       // options={{
+//       //   headerLeft: () => (
+//       //     <HeaderBackButton
+//       //     onPress={() => navigation.navigate('Home',{
+//       //       UserProfile: UserProfile
+//       //     })}
+//       //     />
+//       //   ),
+//       // }}
 
 
-      />
-      <Drawer.Screen name="Donations" component={Donations} />
-      <Drawer.Screen name="Profile" component={Profile} />
-      <Drawer.Screen name="About Me" component={About} />
+//       />
+//       <Drawer.Screen name="Donations" component={Donations} />
+//       <Drawer.Screen name="Profile" component={Profile} />
+//       <Drawer.Screen name="About Me" component={About} />
      
-    </Drawer.Navigator>
-  );
-}
-// For Drawer Navigation
+//     </Drawer.Navigator>
+//   );
+// }
+// // For Drawer Navigation
 
 
 
@@ -85,7 +88,7 @@ const MainStackNavigation = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <MainStackNavigation.Navigator initialRouteName="Login">
+      <MainStackNavigation.Navigator initialRouteName="Home">
         <MainStackNavigation.Screen
           name="Splash"
           component={Splash}
@@ -115,13 +118,13 @@ function App() {
 
           }}
         />
-        <MainStackNavigation.Screen
+        {/* <MainStackNavigation.Screen
           name="Request"
           component={Request}
           options={{
             title: 'Make a Blood Request',
           }}
-        />
+        /> */}
         {/* <MainStackNavigation.Screen
           name="Feed"
           component={Feed}
@@ -130,13 +133,13 @@ function App() {
           }}
         /> */}
         
-        <MainStackNavigation.Screen
+        {/* <MainStackNavigation.Screen
           name="DetailsData"
           component={DetailsData}
           options={{
             title: 'DetailsData',
           }}
-        />
+        /> */}
 
         
 
@@ -148,7 +151,7 @@ function App() {
           }}
         /> */}
 
-        <MainStackNavigation.Screen
+        {/* <MainStackNavigation.Screen
           name="MyDrawer"
           component={MyDrawer}
           options={{
@@ -167,14 +170,29 @@ function App() {
               paddingLeft: "15%"
             },
           }}
+        /> */}
+         <MainStackNavigation.Screen
+          name="QRCode"
+          component={QRCode}
+          options={{
+            title: 'QR Code',
+          }}
         />
-        {/* <MainStackNavigation.Screen
+        <MainStackNavigation.Screen
+          name="BarCode"
+          component={BarCode}
+          options={{
+            title: 'Bar Code',
+          }}
+        />
+
+        <MainStackNavigation.Screen
           name="Home"
           component={Home}
           options={{
-            title: 'Blood for Life',
+            title: 'QR Bar Code Scanner App',
             headerStyle: {
-              backgroundColor: 'red',
+              backgroundColor: 'rgb(2, 117, 216)',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -182,7 +200,7 @@ function App() {
               paddingLeft: "15%"
             },
           }}
-        /> */}
+        />
       </MainStackNavigation.Navigator>
     </NavigationContainer>
   );

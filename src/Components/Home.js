@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import MIcon from 'react-native-vector-icons/MaterialIcons';
+
 import {
     View,
     BackHandler,
@@ -135,7 +137,7 @@ import bloodmap from '../UI/bloodcross.jpg';
 // }
 // export default Home;
 
-const Home = ({ route, navigation }) => {
+const Home = ({navigation}) => {
 
     useEffect(() => {
         const backAction = () => {
@@ -159,7 +161,7 @@ const Home = ({ route, navigation }) => {
     }, []);
 
 
-    const { UserProfile } = route.params;
+    // const { UserProfile } = route.params;
 
     let images = [
         image1,
@@ -172,12 +174,22 @@ const Home = ({ route, navigation }) => {
     return (
 
         <Container>
-            <SliderBox autoplay={true} circleLoop={true} images={images} />
+            <View style={{
+                shadowColor: "#000",
+                shadowOffset: {
+                    width: 0,
+                    height: 8,
+                },
+                shadowOpacity: 0.46,
+                shadowRadius: 11.14,
+                
+                elevation: 17,
+            }}>
+                <SliderBox autoplay={true} circleLoop={true} images={images} />
+            </View>
             <Content>
                 <Card>
-                    <CardItem>
 
-                    </CardItem>
                     <CardItem>
                         <Grid>
                             <Row>
@@ -188,61 +200,14 @@ const Home = ({ route, navigation }) => {
                                                 <Icon.Button
                                                     name="send"
                                                     style={{ width: 150, height: 100 }}
-                                                    name="user"
+
                                                     iconStyle={{ fontSize: 25 }}
-                                                    backgroundColor="red"
+                                                    backgroundColor="rgb(2, 117, 216)"
                                                     onPress={() =>
-                                                        navigation.navigate('Request', {
-                                                            UserProfile: UserProfile
-                                                        })
+                                                        navigation.navigate('QRCode')
                                                     }
                                                 >
-                                                    <Text style={styles.buttonText}>Request Blood</Text>
-                                                </Icon.Button>
-
-                                            </Body>
-                                        </Body>
-                                    </CardItem>
-                                </Col>
-                                <Col>
-                                    <CardItem>
-                                        <Body>
-                                            <Body>
-                                                <Icon.Button
-                                                    name="list"
-                                                    style={{ width: 150, height: 100 }}
-
-                                                    iconStyle={{ fontSize: 25 }}
-                                                    backgroundColor="skyblue"
-                                                    onPress={() => {
-                                                        /* 1. Navigate to the Details route with params */
-                                                        navigation.navigate('Feed');
-                                                    }}
-                                                >
-                                                    <Text style={styles.buttonText}>Requests</Text>
-                                                </Icon.Button>
-                                            </Body>
-                                        </Body>
-                                    </CardItem>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <CardItem>
-                                        <Body>
-                                            <Body>
-                                                <Icon.Button
-                                                    name="list-alt"
-                                                    style={{ width: 150, height: 100 }}
-
-                                                    iconStyle={{ fontSize: 20 }}
-                                                    backgroundColor="green"
-                                                    onPress={() => {
-                                                        /* 1. Navigate to the Details route with params */
-                                                        navigation.navigate('Donations');
-                                                    }}
-                                                >
-                                                    <Text style={styles.buttonText}>My Donor</Text>
+                                                    <Text style={styles.buttonText}>QR Code</Text>
                                                 </Icon.Button>
                                             </Body>
                                         </Body>
@@ -253,19 +218,16 @@ const Home = ({ route, navigation }) => {
                                         <Body>
                                             <Body>
                                                 <Icon.Button
-                                                    style={{ width: 150, height: 100 }}
-                                                    name="user"
-                                                    iconStyle={{ fontSize: 25 }}
+                                                    name="send"
+                                                    style={{ width: 150, height: 100, borderWidth: 0.2 }}
 
-                                                    backgroundColor="grey"
-                                                    onPress={() => {
-                                                        /* 1. Navigate to the Details route with params */
-                                                        navigation.navigate('Profile', {
-                                                            UserProfile: UserProfile
-                                                        });
-                                                    }}
+                                                    iconStyle={{ fontSize: 25, color: "black" }}
+                                                    backgroundColor="rgb(247, 247, 247)"
+                                                    onPress={() =>
+                                                        navigation.navigate('BarCode')
+                                                    }
                                                 >
-                                                    <Text style={styles.buttonText}>My Profile</Text>
+                                                    <Text style={{ fontSize: 25, width: "100%" }}>Bar Code</Text>
                                                 </Icon.Button>
                                             </Body>
                                         </Body>
@@ -276,26 +238,26 @@ const Home = ({ route, navigation }) => {
                     </CardItem>
                     <CardItem>
                         <Image
-                            style={{ width: "100%", height: 300 }}
+                            style={{ width: "100%", height: 300,borderRadius:5 }}
                             source={bloodmap}
                         />
                     </CardItem>
                     <CardItem>
 
                     </CardItem>
-                    
-                    <Icon.Button
-                            name="star"
-                            style={{  height: 70,borderRadius:0,width:"100%",textAlign:"center" }}
-                            iconStyle={{ fontSize: 25 }}
-                            backgroundColor="red"
-                            onPress={() => {
-                                /* 1. Navigate to the Details route with params */
-                                navigation.navigate('Feed');
-                            }}
-                        >
-                            <Text style={{textAlign:"center", fontSize: 40, color: "white",width:"100%"}}>Rate Us</Text>
-                        </Icon.Button>
+
+                    <MIcon.Button
+                        name="rate-review"
+                        style={{ height: 60, borderRadius: 0, width: "100%", textAlign: "center" }}
+                        iconStyle={{ fontSize: 25 }}
+                        backgroundColor="rgb(240, 173, 78)"
+                        onPress={() => {
+                            /* 1. Navigate to the Details route with params */
+                            navigation.navigate('Feed');
+                        }}
+                    >
+                        <Text style={{ textAlign: "center", fontSize: 35, color: "white", width: "100%" }}>Rate Us</Text>
+                    </MIcon.Button>
                 </Card>
             </Content>
 
@@ -314,7 +276,7 @@ const Home = ({ route, navigation }) => {
 const styles = StyleSheet.create({
     buttonText: {
         fontSize: 25, color: "white",
-        width:"100%"
+        width: "100%"
     },
 });
 
